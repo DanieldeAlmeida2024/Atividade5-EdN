@@ -1,3 +1,32 @@
+# Atividade5-EdN — atividades Python
+
+Exercícios Python de gorjeta, palíndromo, desconto e idade em dias.
+
+## Execução
+Requer Python 3.10+:
+
+```bash
+python 1/gorjeta.py
+```
+
+**Scripts:** 1/gorjeta.py, 2/palindromo.py, 3/desconto.py, 4/idade_em_dias.py. As atividades são independentes.
+
+## Testes
+```bash
+python -m unittest discover -s tests -v
+```
+
+A suíte acrescentada verifica documentação e sintaxe dos scripts; **não** comprova respostas corretas nem disponibilidade das APIs externas.
+
+## Atenção
+Exercícios didáticos; validar resultados contra os enunciados originais.
+
+Documentos complementares: [requisitos](docs/REQUISITOS.md), [estrutura](docs/ARQUITETURA.md), [UML](docs/UML.puml), [plano de testes](docs/PLANO_TESTES.md), [guia IA](AGENTS.md).
+
+---
+
+## Enunciados originais
+
 ### Atividade Prática 05
 
 
