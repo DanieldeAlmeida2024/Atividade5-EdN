@@ -46,3 +46,7 @@ Retorna: float: O valor da gorjeta calculada
 
 
  4. Crie uma função que calcule a idade de uma pessoa em dias, baseada no ano de nascimento.
+
+## Documentação específica v1.0.0
+
+[Projeto](docs/projeto/ESPECIFICACAO.md) · [UML](docs/uml/README.md) · [Testes](docs/testes/PLANO_DE_TESTES.md) · [Versões](docs/controle/VERSIONAMENTO.md)

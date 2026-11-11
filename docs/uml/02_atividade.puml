@@ -1,0 +1,13 @@
+@startuml
+title 3/desconto.py: atividade
+start
+:Receber preço original e percentual;
+if (preço<0 ou percentual fora [0,100]?) then (sim)
+:Lançar ValueError;
+else (não)
+:Desconto=preço*percentual/100;
+:Final=preço-desconto;
+:Retornar (desconto,final);
+endif
+stop
+@enduml
