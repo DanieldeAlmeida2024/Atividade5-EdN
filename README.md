@@ -18,6 +18,14 @@ python -m unittest discover -s tests -v
 
 A suíte acrescentada verifica documentação e sintaxe dos scripts; **não** comprova respostas corretas nem disponibilidade das APIs externas.
 
+## Correções com testes de comportamento
+
+Os quatro exercícios têm verificações automatizadas em Python. A gorjeta e o desconto recusam números negativos, `NaN` e infinito; o palíndromo funciona com acentos e caracteres Unicode e não classifica texto vazio como palíndromo.
+
+O cálculo de **idade em dias a partir de um ano** representa os dias desde **1º de janeiro do ano informado**, considerando anos bissextos. É uma aproximação: para idade real em dias também seriam necessários o dia e o mês de nascimento. Anos futuros são rejeitados.
+
+Execute `python -m unittest discover -s tests -p 'test_*.py' -v`; a suíte é executada pelo GitHub Actions em pull requests e na `main`.
+
 ## Atenção
 Exercícios didáticos; validar resultados contra os enunciados originais.
 
