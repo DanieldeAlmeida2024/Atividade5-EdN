@@ -1,10 +1,15 @@
 import datetime
 
-def calcular_idade_em_dias(ano_nascimento: int) -> int:
+def calcular_idade_em_dias(ano_nascimento: int, referencia: datetime.date | None = None) -> int:
   """
-  Calcula a idade de uma pessoa em dias, considerando a data atual.
-  Esta função considera dias exatos e anos bissextos.
+  Calcula dias desde 1 de janeiro do ano informado (aproximação).
+  Sem dia e mês de nascimento, a idade real em dias não pode ser conhecida.
   """
+  data_atual = referencia if referencia is not None else datetime.date.today()
+  if not isinstance(data_atual, datetime.date):
+    raise ValueError('A data de referência deve ser uma data válida.')
+  if type(ano_nascimento) is not int or ano_nascimento < 1 or ano_nascimento > data_atual.year:
+    raise ValueError('Ano de nascimento inválido ou futuro.')
   try:
     # Cria uma data de nascimento no dia 1 de janeiro do ano fornecido
     data_nascimento = datetime.date(ano_nascimento, 1, 1)
@@ -12,10 +17,6 @@ def calcular_idade_em_dias(ano_nascimento: int) -> int:
     # Lida com anos muito antigos ou inválidos
     raise ValueError("Ano de nascimento inválido.")
     
-  data_atual = datetime.date.today()
-  
-  if data_nascimento > data_atual:
-    return 0 # Pessoa ainda não nasceu
 
   # Calcula a diferença entre as datas
   diferenca = data_atual - data_nascimento
