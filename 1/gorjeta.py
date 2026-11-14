@@ -1,6 +1,12 @@
+import math
+
 def calcular_gorjeta(valor_conta: float, porcentagem_gorjeta: float) -> float:
   """Calcula o valor da gorjeta a ser deixada."""
-  if valor_conta < 0 or porcentagem_gorjeta < 0:
+  if (isinstance(valor_conta, bool) or isinstance(porcentagem_gorjeta, bool)
+      or not isinstance(valor_conta, (int, float))
+      or not isinstance(porcentagem_gorjeta, (int, float))
+      or not math.isfinite(valor_conta) or not math.isfinite(porcentagem_gorjeta)
+      or valor_conta < 0 or porcentagem_gorjeta < 0):
     raise ValueError("O valor da conta e a porcentagem da gorjeta devem ser positivos.")
     
   fator_gorjeta = porcentagem_gorjeta / 100
