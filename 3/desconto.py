@@ -1,6 +1,12 @@
+import math
+
 def calcular_preco_com_desconto(preco_original: float, percentual_desconto: float) -> tuple[float, float]:
   """Calcula o valor do desconto e o preço final."""
-  if preco_original < 0 or not (0 <= percentual_desconto <= 100):
+  if (isinstance(preco_original, bool) or isinstance(percentual_desconto, bool)
+      or not isinstance(preco_original, (int, float))
+      or not isinstance(percentual_desconto, (int, float))
+      or not math.isfinite(preco_original) or not math.isfinite(percentual_desconto)
+      or preco_original < 0 or not (0 <= percentual_desconto <= 100)):
     raise ValueError("Preço deve ser positivo e desconto entre 0 e 100%.")
 
   valor_desconto = preco_original * (percentual_desconto / 100)
