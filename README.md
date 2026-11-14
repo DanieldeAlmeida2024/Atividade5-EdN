@@ -16,9 +16,9 @@ python 1/gorjeta.py
 python -m unittest discover -s tests -v
 ```
 
-A suíte acrescentada verifica documentação e sintaxe dos scripts; **não** comprova respostas corretas nem disponibilidade das APIs externas.
+A suíte executa testes de comportamento e validação para os quatro exercícios, além das verificações documentais.
 
-## Correções com testes de comportamento
+## Comportamento e validações
 
 Os quatro exercícios têm verificações automatizadas em Python. A gorjeta e o desconto recusam números negativos, `NaN` e infinito; o palíndromo funciona com acentos e caracteres Unicode e não classifica texto vazio como palíndromo.
 
