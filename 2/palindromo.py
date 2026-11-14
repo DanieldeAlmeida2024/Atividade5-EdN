@@ -1,16 +1,20 @@
-import re
+import unicodedata
 
 def verificar_palindromo(texto: str) -> str:
   """
   Verifica se uma palavra ou frase é um palíndromo. 
   Retorna "Sim" ou "Não".
   """
-  # 1. Formata: minúsculas e remove caracteres não alfanuméricos
-  texto_formatado = texto.lower()
-  texto_limpo = re.sub(r'[^a-z0-9]', '', texto_formatado)
+  if not isinstance(texto, str):
+    raise TypeError('O texto deve ser uma string.')
+  normalizado = unicodedata.normalize('NFKD', texto.casefold())
+  texto_limpo = ''.join(
+    caractere for caractere in normalizado
+    if not unicodedata.combining(caractere) and caractere.isalnum()
+  )
 
   # 2. Verifica se a string limpa é igual à sua versão invertida
-  e_palindromo = texto_limpo == texto_limpo[::-1]
+  e_palindromo = bool(texto_limpo) and texto_limpo == texto_limpo[::-1]
 
   return "Sim" if e_palindromo else "Não"
 
