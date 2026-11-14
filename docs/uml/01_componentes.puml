@@ -1,0 +1,15 @@
+@startuml
+title Atividade5-EdN — funções Python reais
+actor Terminal
+component "1/gorjeta.py\ncalcular_gorjeta" as M0
+Terminal --> M0
+component "2/palindromo.py\nverificar_palindromo" as M1
+Terminal --> M1
+component "3/desconto.py\ncalcular_preco_com_desconto" as M2
+Terminal --> M2
+component "4/idade_em_dias.py\ncalcular_idade_em_dias" as M3
+Terminal --> M3
+note bottom
+Programas independentes; sem banco nem API própria.
+end note
+@enduml
