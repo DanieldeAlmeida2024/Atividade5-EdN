@@ -1,5 +1,7 @@
 """Testes de regressão dos quatro exercícios da Atividade 05."""
 import datetime
+import subprocess
+import sys
 import importlib.util
 from pathlib import Path
 import unittest
@@ -28,6 +30,20 @@ class RegressoesTestes(unittest.TestCase):
             with self.subTest(valor=valor, percentual=percentual):
                 with self.assertRaises(ValueError):
                     gorjeta.calcular_gorjeta(valor, percentual)
+
+    def test_gorjeta_rejeita_resultado_infinito(self):
+        with self.assertRaises(ValueError):
+            gorjeta.calcular_gorjeta(1e308, 1e308)
+
+    def test_fim_de_entrada_sem_traceback_nos_quatro_clis(self):
+        for script in ("1/gorjeta.py", "2/palindromo.py", "3/desconto.py",
+                       "4/idade_em_dias.py"):
+            with self.subTest(script=script):
+                p = subprocess.run([sys.executable, str(ROOT / script)],
+                                   input="", capture_output=True, text=True, timeout=10)
+                self.assertEqual(0, p.returncode, p.stderr)
+                self.assertIn("Entrada", p.stdout)
+                self.assertNotIn("Traceback", p.stderr)
 
     def test_desconto_valido(self):
         valor, final = desconto.calcular_preco_com_desconto(250, 10)
