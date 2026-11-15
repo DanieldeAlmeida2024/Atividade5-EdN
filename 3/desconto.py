@@ -28,7 +28,7 @@ def aplicacao_desconto():
     print(f"Valor do Desconto: R$ {valor_desconto:.2f}")
     print(f"**Preço Final: R$ {preco_final:.2f}**")
 
-  except ValueError as e:
+  except (ValueError, EOFError) as e:
     print(f"Erro: Entrada inválida. {e}")
 
 # Executa a aplicação

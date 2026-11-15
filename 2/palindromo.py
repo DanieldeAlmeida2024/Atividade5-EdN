@@ -21,7 +21,11 @@ def verificar_palindromo(texto: str) -> str:
 def aplicacao_palindromo():
   """Ponto de entrada da aplicação de verificação de palíndromo."""
   print("--- 🔄 Verificador de Palíndromo ---")
-  texto_usuario = input("Digite uma palavra ou frase: ")
+  try:
+    texto_usuario = input("Digite uma palavra ou frase: ")
+  except EOFError:
+    print("Entrada encerrada sem texto.")
+    return
 
   resultado = verificar_palindromo(texto_usuario)
 

@@ -35,7 +35,7 @@ def aplicacao_idade_em_dias():
     print(f"Seu ano de nascimento é: {ano_nascimento}")
     print(f"Você tem aproximadamente **{dias_vividos:,} dias** de vida!")
 
-  except ValueError as e:
+  except (ValueError, EOFError) as e:
     print(f"Erro: Entrada inválida. {e}")
 
 # Executa a aplicação

@@ -11,6 +11,8 @@ def calcular_gorjeta(valor_conta: float, porcentagem_gorjeta: float) -> float:
     
   fator_gorjeta = porcentagem_gorjeta / 100
   valor_gorjeta = valor_conta * fator_gorjeta
+  if not math.isfinite(valor_gorjeta):
+    raise ValueError("O resultado da gorjeta excede o limite numérico.")
   return valor_gorjeta
 
 def aplicacao_gorjeta():
@@ -22,13 +24,15 @@ def aplicacao_gorjeta():
 
     valor_da_gorjeta = calcular_gorjeta(valor_conta, porcentagem_gorjeta)
     valor_total = valor_conta + valor_da_gorjeta
+    if not math.isfinite(valor_total):
+      raise ValueError("O total excede o limite numérico.")
 
     print("\n--- Resultado ---")
     print(f"Valor da Gorjeta: R$ {valor_da_gorjeta:.2f}")
     print(f"Total a pagar (Conta + Gorjeta): R$ {valor_total:.2f}")
 
-  except ValueError as e:
-    print(f"Erro: Entrada inválida. {e}")
+  except (ValueError, EOFError) as e:
+    print(f"Erro: Entrada inválida ou encerrada. {e}")
 
 # Executa a aplicação
 if __name__ == "__main__":
