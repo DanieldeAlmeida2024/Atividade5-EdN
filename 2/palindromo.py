@@ -7,7 +7,7 @@ def verificar_palindromo(texto: str) -> str:
   """
   if not isinstance(texto, str):
     raise TypeError('O texto deve ser uma string.')
-  normalizado = unicodedata.normalize('NFKD', texto.casefold())
+  normalizado = unicodedata.normalize('NFKD', texto).casefold()
   texto_limpo = ''.join(
     caractere for caractere in normalizado
     if not unicodedata.combining(caractere) and caractere.isalnum()

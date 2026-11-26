@@ -64,6 +64,11 @@ class RegressoesTestes(unittest.TestCase):
         self.assertEqual("Sim", palindromo.verificar_palindromo("été"))
         self.assertEqual("Não", palindromo.verificar_palindromo("Python não"))
 
+    def test_palindromo_com_letras_unicode_de_compatibilidade(self):
+        self.assertEqual("Sim", palindromo.verificar_palindromo("𝐀, 𝐚"))
+        self.assertEqual("Sim", palindromo.verificar_palindromo("ᴬ a"))
+        self.assertEqual("Não", palindromo.verificar_palindromo("𝐀, 𝐛"))
+
     def test_palindromo_vazio_ou_pontuacao_nao_e_palindromo(self):
         for texto in ("", "  ", "?!.."):
             with self.subTest(texto=texto):
