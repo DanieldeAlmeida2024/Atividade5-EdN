@@ -20,7 +20,7 @@ A suíte executa testes de comportamento e validação para os quatro exercício
 
 ## Comportamento e validações
 
-Os quatro exercícios têm verificações automatizadas em Python. A gorjeta e o desconto recusam números negativos, `NaN` e infinito; o palíndromo funciona com acentos e caracteres Unicode e não classifica texto vazio como palíndromo.
+Os quatro exercícios têm verificações automatizadas em Python. A gorjeta e o desconto recusam números negativos, `NaN` e infinito. O palíndromo normaliza caracteres Unicode antes de ignorar diferenças de caixa. Por exemplo, `𝐀, 𝐚` é tratado como `aa`. Um texto sem letras ou números retorna “Não”.
 
 O cálculo de **idade em dias a partir de um ano** representa os dias desde **1º de janeiro do ano informado**, considerando anos bissextos. É uma aproximação: para idade real em dias também seriam necessários o dia e o mês de nascimento. Anos futuros são rejeitados.
 
